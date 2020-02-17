@@ -8,3 +8,9 @@ export const getUsers = () => {
     }
   }).then(({ data }) => data);
 };
+
+
+export const createUser = payload => axios.post('/users', payload).then(({ data }) => data);
+
+
+export const deleteUser = userId => axios.delete(`/users/${userId}`).then(({ data }) => data);
