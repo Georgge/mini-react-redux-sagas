@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { getUsersRequestAction, createUserRequestAction } from './actions/usersAction';
+import {
+  getUsersRequestAction,
+  createUserRequestAction,
+  deleteUserRequestAction,
+} from './actions/usersAction';
 
 import UserForm from './components/UserForm';
 import UsersList from './components/UsersList';
@@ -9,6 +13,7 @@ import UsersList from './components/UsersList';
 function App({
     getUsersRequestAction, users,
     createUserRequestAction,
+    deleteUserRequestAction,
 }) {
   useEffect(() => {
     getUsersRequestAction();
@@ -17,7 +22,7 @@ function App({
 
   const handleFormSubmit = userData => createUserRequestAction(userData);
 
-  const handleUserDelete = userId => console.log(userId);
+  const handleUserDelete = userId => deleteUserRequestAction(userId);
 
   return (
     <div style={{ margin: '0 auto', padding: '32px', width: '800px' }}>
@@ -35,5 +40,6 @@ export default connect(
   mapSateToProps, {
     getUsersRequestAction,
     createUserRequestAction,
+    deleteUserRequestAction,
   }
 )(App);

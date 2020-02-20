@@ -6,6 +6,8 @@ export const TYPES = {
   GET_USERS_SUCCESS: `${PREFIX}GET_USERS_SUCCESS`,
   CREATE_USER_REQUEST: `${PREFIX}CREATE_USER_REQUEST`,
   CREATE_USER_SUCCESS: `${PREFIX}CREATE_USER_SUCCESS`,
+  DELETE_USER_REQUEST: `${PREFIX}DELETE_USER_REQUEST`,
+  DELETE_USER_SUCCESS: `${PREFIX}DELETE_USER_SUCCESS`,
 };
 
 
@@ -27,5 +29,16 @@ export const createUserRequestAction = payload => ({
 
 export const createUserSuccessAction = payload => ({
   type: TYPES.CREATE_USER_SUCCESS,
+  payload,
+});
+
+
+export const deleteUserRequestAction = userId => ({
+  type: TYPES.DELETE_USER_REQUEST,
+  payload: userId,
+});
+
+export const deleteUserSuccessAction = payload => ({
+  type: TYPES.DELETE_USER_SUCCESS,
   payload,
 });
